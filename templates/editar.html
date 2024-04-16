@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Editar Pessoa</title>
+</head>
+<body>
+    <h1>Editar Pessoa</h1>
+    <form action="" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" value="{{ pessoa[1] }}" required>
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" name="cpf" value="{{ pessoa[2] }}" required>
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>

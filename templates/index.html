@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Pessoas</title>
+    <link rel="stylesheet"  href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Cadastro de Pessoas</h1>
+
+    <!-- Formulário para cadastrar uma nova pessoa -->
+    <h2>Cadastrar Nova Pessoa</h2>
+    <form action="/cadastrar" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" name="cpf" required>
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <!-- Lista de pessoas cadastradas -->
+    <h2>Pessoas Cadastradas</h2>
+    <ul>
+        {% for pessoa in pessoas %}
+            <li>Nome: {{ pessoa[1] }}, CPF: {{ pessoa[2] }}
+                [<a href="/editar/{{ pessoa[0] }}">Editar</a>]
+                [<a href="/excluir/{{ pessoa[0] }}">Excluir</a>]
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
